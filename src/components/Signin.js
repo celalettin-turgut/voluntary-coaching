@@ -13,16 +13,14 @@ const Signin = () => {
     <React.Fragment>
       <Row justify="center">
         <Col
-          xs={{ span: 20, offset: 2 }}
-          sm={{ span: 20, offset: 2 }}
+          xs={{ span: 24 }}
+          sm={{ span: 24 }}
           md={{ span: 16, offset: 4 }}
-          lg={{ span: 16, offset: 4 }}
+          lg={{ span: 8, offset: 0 }}
         >
           <h1 style={{ textAlign: "center" }}>SIGN IN</h1>
           <Form
-            name="basic"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}
+            name="signin"
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Input, Checkbox, Button } from "antd";
 import { useAuth } from "../context/auth";
+import styles from "./Signup.module.css";
+import { SignupStyle } from "./style";
 
 const Signup = () => {
   const { signup, user } = useAuth();
@@ -16,15 +18,16 @@ const Signup = () => {
   };
   return (
     <React.Fragment>
-      <Row justify="center">
+      <SignupStyle justify="center">
         <Col
-          xs={{ span: 20, offset: 2 }}
-          sm={{ span: 20, offset: 2 }}
+          xs={{ span: 24 }}
+          sm={{ span: 24 }}
           md={{ span: 16, offset: 4 }}
-          lg={{ span: 16, offset: 4 }}
+          lg={{ span: 8, offset: 0 }}
         >
           <h1 style={{ textAlign: "center" }}>SIGN UP</h1>
           <Form
+            size="large"
             name="basic"
             initialValues={{ remember: true }}
             onFinish={onFinish}
@@ -80,7 +83,7 @@ const Signup = () => {
             </Form.Item>
           </Form>
         </Col>
-      </Row>
+      </SignupStyle>
     </React.Fragment>
   );
 };

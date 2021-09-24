@@ -1,8 +1,37 @@
 import React from "react";
-import styles from "./Header.module.css";
+import { Menu, Layout } from "antd";
+import { Link } from "react-router-dom";
+import { HeaderStyle } from "../style";
 
 const Header = () => {
-  return <div className={styles.header}></div>;
+  const token = null;
+
+  const menu = (
+    <React.Fragment>
+      <Menu.Item>
+        <Link to="/signin">Sign In</Link>
+      </Menu.Item>
+      <Menu.Item>
+        <Link to="/signup">Sign Up</Link>
+      </Menu.Item>
+    </React.Fragment>
+  );
+
+  const authMenu = (
+    <React.Fragment>
+      <Menu.Item>
+        <Link to="/profile">Profile</Link>
+      </Menu.Item>
+      <Menu.Item>
+        <Link to="/signout">Sign Out</Link>
+      </Menu.Item>
+    </React.Fragment>
+  );
+  return (
+    <HeaderStyle>
+      <Menu mode="horizontal">{token ? authMenu : menu}</Menu>
+    </HeaderStyle>
+  );
 };
 
 export default Header;
