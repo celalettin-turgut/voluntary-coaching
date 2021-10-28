@@ -1,10 +1,13 @@
 import React from "react";
 import { Menu, Layout, Space } from "antd";
 import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, logout } from "../firebase";
 import { HeaderStyle } from "../style";
+import { signOut } from "@firebase/auth";
 
 const Header = () => {
-  const token = null;
+  const [user, loading, error] = useAuthState(auth);
 
   const menu = (
     <React.Fragment>
@@ -22,15 +25,17 @@ const Header = () => {
       <Menu.Item>
         <Link to="/profile">Profile</Link>
       </Menu.Item>
-      <Menu.Item>
-        <Link to="/signout">Sign Out</Link>
-      </Menu.Item>
+      {/* <Menu.Item>
+        <Link to="/signin">
+          Sign Out
+        </Link>
+      </Menu.Item> */}
     </React.Fragment>
   );
   return (
     <HeaderStyle>
       <Menu className="menu" mode="horizontal">
-        {token ? authMenu : menu}
+        {user ? authMenu : menu}
       </Menu>
     </HeaderStyle>
   );
