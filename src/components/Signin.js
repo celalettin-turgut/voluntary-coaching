@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Button, Form, Input, Checkbox } from "antd";
+import { StyledCol } from "./style";
 
 const Signin = () => {
   const onFinish = (values) => {
@@ -9,10 +10,14 @@ const Signin = () => {
   const onFinishFailed = (errorInfo) => {
     console.log(errorInfo);
   };
+
+  const validateMessages = {
+    required: `is required`,
+  };
   return (
     <React.Fragment>
       <Row justify="center">
-        <Col
+        <StyledCol
           xs={{ span: 24 }}
           sm={{ span: 24 }}
           md={{ span: 16, offset: 4 }}
@@ -23,10 +28,12 @@ const Signin = () => {
             name="signin"
             initialValues={{ remember: true }}
             onFinish={onFinish}
+            validateMessages={validateMessages}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
             <Form.Item
+              labelCol={{ span: 24 }}
               label="Email"
               name="email"
               rules={[
@@ -41,6 +48,7 @@ const Signin = () => {
             </Form.Item>
 
             <Form.Item
+              labelCol={{ span: 24 }}
               label="Password"
               name="password"
               rules={[
@@ -50,21 +58,17 @@ const Signin = () => {
               <Input.Password />
             </Form.Item>
 
-            <Form.Item
-              name="remember"
-              valuePropName="checked"
-              wrapperCol={{ offset: 8, span: 16 }}
-            >
+            <Form.Item name="remember" valuePropName="checked">
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
-            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+            <Form.Item>
               <Button type="primary" htmlType="submit">
                 Sign In
               </Button>
             </Form.Item>
           </Form>
-        </Col>
+        </StyledCol>
       </Row>
     </React.Fragment>
   );

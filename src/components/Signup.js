@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Input, Checkbox, Button } from "antd";
 import { useAuth } from "../context/auth";
-import styles from "./Signup.module.css";
-import { SignupStyle } from "./style";
+import { StyledCol, StyledRow } from "./style";
 
 const Signup = () => {
   const { signup, user } = useAuth();
@@ -10,6 +9,7 @@ const Signup = () => {
   const [error, setError] = useState(null);
 
   const onFinish = ({ email, password }) => {
+    console.log("Merhaba");
     signup(email, password);
   };
 
@@ -18,8 +18,8 @@ const Signup = () => {
   };
   return (
     <React.Fragment>
-      <SignupStyle justify="center">
-        <Col
+      <StyledRow>
+        <StyledCol
           xs={{ span: 24 }}
           sm={{ span: 24 }}
           md={{ span: 16, offset: 4 }}
@@ -27,7 +27,6 @@ const Signup = () => {
         >
           <h1 style={{ textAlign: "center" }}>SIGN UP</h1>
           <Form
-            size="large"
             name="basic"
             initialValues={{ remember: true }}
             onFinish={onFinish}
@@ -35,6 +34,7 @@ const Signup = () => {
             autoComplete="off"
           >
             <Form.Item
+              labelCol={{ span: 24 }}
               label="Name"
               name="name"
               rules={[
@@ -44,6 +44,7 @@ const Signup = () => {
               <Input />
             </Form.Item>
             <Form.Item
+              labelCol={{ span: 24 }}
               label="Email"
               name="email"
               rules={[
@@ -57,6 +58,7 @@ const Signup = () => {
             </Form.Item>
 
             <Form.Item
+              labelCol={{ span: 24 }}
               label="Password"
               name="password"
               rules={[
@@ -82,8 +84,8 @@ const Signup = () => {
               </Button>
             </Form.Item>
           </Form>
-        </Col>
-      </SignupStyle>
+        </StyledCol>
+      </StyledRow>
     </React.Fragment>
   );
 };

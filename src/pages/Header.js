@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Layout } from "antd";
+import { Menu, Layout, Space } from "antd";
 import { Link } from "react-router-dom";
 import { HeaderStyle } from "../style";
 
@@ -29,7 +29,9 @@ const Header = () => {
   );
   return (
     <HeaderStyle>
-      <Menu mode="horizontal">{token ? authMenu : menu}</Menu>
+      <Menu className="menu" mode="horizontal">
+        {token ? authMenu : menu}
+      </Menu>
     </HeaderStyle>
   );
 };
