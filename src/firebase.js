@@ -1,5 +1,11 @@
 import { initializeApp } from "@firebase/app";
-import { getAuth } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
+import { getFirestore, addDoc, collection } from "firebase/firestore";
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -11,5 +17,77 @@ export const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore();
+
+// const googleProvider = new firebase.auth.GoogleAuthProvider();
+// const signInWithGoogle = async () => {
+//   try {
+//     const res = await auth.signInWithPopup(googleProvider);
+//     const user = res.user;
+//     const query = await db
+//       .collection("users")
+//       .where("uid", "==", user.uid)
+//       .get();
+//     if (query.docs.length === 0) {
+//       await db.collection("users").add({
+//         uid: user.uid,
+//         name: user.displayName,
+//         authProvider: "google",
+//         email: user.email,
+//       });
+//     }
+//   } catch (err) {
+//     console.error(err);
+//     alert(err.message);
+//   }
+// };
+const signIn = async (email, password) => {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+const register = async (name, email, password) => {
+  try {
+    const res = await createUserWithEmailAndPassword(auth, email, password);
+    //const user = res.user;
+    // await addDoc(collection(db, "users"), {
+    //   uid: user.uid,
+    //   name,
+    //   authProvider: "local",
+    //   email,
+    // });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+const sendPasswordResetEmail = async (email) => {
+  try {
+    await auth.sendPasswordResetEmail(email);
+    alert("Password reset link sent!");
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+const logout = () => {
+  signOut(auth)
+    .then(() => {
+      console.log("Signed Out successfully");
+    })
+    .catch("An error occured while signing out");
+};
+export {
+  auth,
+  db,
+  //signInWithGoogle,
+  signIn,
+  register,
+  sendPasswordResetEmail,
+  logout,
+};

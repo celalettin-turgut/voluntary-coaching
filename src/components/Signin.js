@@ -1,11 +1,26 @@
-import React from "react";
-import { Row, Col, Button, Form, Input, Checkbox } from "antd";
+import React, { useEffect } from "react";
+import { Row, Button, Form, Input, Checkbox } from "antd";
 import { StyledCol } from "./style";
+import { useHistory } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, signIn } from "../firebase";
 
 const Signin = () => {
-  const onFinish = (values) => {
-    console.log(values);
+  const history = useHistory();
+  const [user, loading, error] = useAuthState(auth);
+
+  const onFinish = ({ email, password }) => {
+    signIn(email, password);
   };
+
+  useEffect(() => {
+    if (loading) {
+      return <h1>Loading..</h1>;
+    }
+    if (user) {
+      history.push("/dashboard");
+    }
+  }, [loading, user, history]);
 
   const onFinishFailed = (errorInfo) => {
     console.log(errorInfo);

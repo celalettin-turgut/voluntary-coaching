@@ -1,21 +1,29 @@
-import React, { useState } from "react";
-import { Row, Col, Form, Input, Checkbox, Button } from "antd";
-import { useAuth } from "../context/auth";
+import React, { useEffect } from "react";
+import { Form, Input, Checkbox, Button } from "antd";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useHistory } from "react-router-dom";
+import { auth, register } from "../firebase";
 import { StyledCol, StyledRow } from "./style";
 
 const Signup = () => {
-  const { signup, user } = useAuth();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [user, loading, error] = useAuthState(auth);
+  const history = useHistory();
 
-  const onFinish = ({ email, password }) => {
+  const onFinish = ({ name, email, password }) => {
     console.log("Merhaba");
-    signup(email, password);
+    register(name, email, password);
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log(errorInfo);
   };
+
+  useEffect(() => {
+    if (loading) return <p>Loading...</p>;
+    if (user) {
+      history.replace("/dashboard");
+    }
+  }, [user, loading]);
   return (
     <React.Fragment>
       <StyledRow>
