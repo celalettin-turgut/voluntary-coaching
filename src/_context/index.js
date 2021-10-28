@@ -5,9 +5,7 @@ import { reducer } from "./reducer";
 export const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
-  const initialState = {
-    user: null,
-  };
+  const initialState = {};
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const changeTheme = (id) => {
