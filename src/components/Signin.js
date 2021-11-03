@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
-import { Row, Button, Form, Input, Checkbox } from "antd";
-import { StyledCol } from "./style";
-import { useHistory } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, signIn } from "../firebase";
+import React, {useEffect} from 'react';
+import {Row, Button, Form, Input, Checkbox} from 'antd';
+import {StyledCol} from './style';
+import {useHistory} from 'react-router-dom';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {auth, signIn} from '../firebase';
 
 const Signin = () => {
   const history = useHistory();
   const [user, loading, error] = useAuthState(auth);
 
-  const onFinish = ({ email, password }) => {
+  const onFinish = ({email, password}) => {
     signIn(email, password);
   };
 
@@ -18,7 +18,7 @@ const Signin = () => {
       return <h1>Loading..</h1>;
     }
     if (user) {
-      history.push("/dashboard");
+      history.push('/dashboard');
     }
   }, [loading, user, history]);
 
@@ -31,31 +31,31 @@ const Signin = () => {
   };
   return (
     <React.Fragment>
-      <Row justify="center">
+      <Row justify='center'>
         <StyledCol
-          xs={{ span: 24 }}
-          sm={{ span: 24 }}
-          md={{ span: 16, offset: 4 }}
-          lg={{ span: 8, offset: 0 }}
+          xs={{span: 24}}
+          sm={{span: 24}}
+          md={{span: 16, offset: 4}}
+          lg={{span: 8, offset: 0}}
         >
-          <h1 style={{ textAlign: "center" }}>SIGN IN</h1>
+          <h1 style={{textAlign: 'center'}}>SIGN IN</h1>
           <Form
-            name="signin"
-            initialValues={{ remember: true }}
+            name='signin'
+            initialValues={{remember: true}}
             onFinish={onFinish}
             validateMessages={validateMessages}
             onFinishFailed={onFinishFailed}
-            autoComplete="off"
+            autoComplete='off'
           >
             <Form.Item
-              labelCol={{ span: 24 }}
-              label="Email"
-              name="email"
+              labelCol={{span: 24}}
+              label='Email'
+              name='email'
               rules={[
                 {
                   required: true,
-                  type: "email",
-                  message: "Please input a valid email!",
+                  type: 'email',
+                  message: 'Please input a valid email!',
                 },
               ]}
             >
@@ -63,22 +63,20 @@ const Signin = () => {
             </Form.Item>
 
             <Form.Item
-              labelCol={{ span: 24 }}
-              label="Password"
-              name="password"
-              rules={[
-                { required: true, message: "Please input your password!" },
-              ]}
+              labelCol={{span: 24}}
+              label='Password'
+              name='password'
+              rules={[{required: true, message: 'Please input your password!'}]}
             >
               <Input.Password />
             </Form.Item>
 
-            <Form.Item name="remember" valuePropName="checked">
+            <Form.Item name='remember' valuePropName='checked'>
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
             <Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button type='primary' htmlType='submit'>
                 Sign In
               </Button>
             </Form.Item>

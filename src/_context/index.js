@@ -1,15 +1,15 @@
-import { createContext, useReducer } from "react";
-import { CHANGE_THEME } from "./actions";
-import { reducer } from "./reducer";
+import {createContext, useReducer} from 'react';
+import {CHANGE_THEME} from './actions';
+import {reducer} from './reducer';
 
 export const AppContext = createContext();
 
-const AppProvider = ({ children }) => {
+const AppProvider = ({children}) => {
   const initialState = {};
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const changeTheme = (id) => {
-    dispatch({ type: CHANGE_THEME });
+    dispatch({type: CHANGE_THEME});
   };
 
   return (

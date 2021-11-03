@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Row, Col } from "antd";
+import styled from 'styled-components';
+import {Row, Col} from 'antd';
 
 export const StyledRow = styled(Row)`
   display: flex;

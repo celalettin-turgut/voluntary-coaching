@@ -1,10 +1,10 @@
-import React from "react";
-import { Menu, Layout, Space } from "antd";
-import { Link } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, logout } from "../firebase";
-import { HeaderStyle } from "../style";
-import { signOut } from "@firebase/auth";
+import React from 'react';
+import {Menu, Layout, Space} from 'antd';
+import {Link} from 'react-router-dom';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {auth, logout} from '../firebase';
+import {HeaderStyle} from '../style';
+import {signOut} from '@firebase/auth';
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -12,10 +12,10 @@ const Header = () => {
   const menu = (
     <React.Fragment>
       <Menu.Item>
-        <Link to="/signin">Sign In</Link>
+        <Link to='/signin'>Sign In</Link>
       </Menu.Item>
       <Menu.Item>
-        <Link to="/signup">Sign Up</Link>
+        <Link to='/signup'>Sign Up</Link>
       </Menu.Item>
     </React.Fragment>
   );
@@ -23,7 +23,7 @@ const Header = () => {
   const authMenu = (
     <React.Fragment>
       <Menu.Item>
-        <Link to="/profile">Profile</Link>
+        <Link to='/profile'>Profile</Link>
       </Menu.Item>
       {/* <Menu.Item>
         <Link to="/signin">
@@ -34,7 +34,7 @@ const Header = () => {
   );
   return (
     <HeaderStyle>
-      <Menu className="menu" mode="horizontal">
+      <Menu className='menu' mode='horizontal'>
         {user ? authMenu : menu}
       </Menu>
     </HeaderStyle>

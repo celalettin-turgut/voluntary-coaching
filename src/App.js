@@ -1,30 +1,30 @@
-import { AppStyle } from "./style";
-import { ConfigProvider } from "antd";
-import Signup from "./components/Signup";
-import Signin from "./components/Signin";
-import Header from "./pages/Header";
-import Footer from "./pages/Footer";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { theme } from "./config/theme";
-import { ThemeProvider } from "styled-components";
-import Dashboard from "./components/Dashboard";
+import {AppStyle} from './style';
+import {ConfigProvider} from 'antd';
+import Signup from './components/Signup';
+import Signin from './components/Signin';
+import Header from './pages/Header';
+import Footer from './pages/Footer';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {theme} from './config/theme';
+import {ThemeProvider} from 'styled-components';
+import Dashboard from './components/Dashboard';
 
 const App = () => {
   return (
-    <ConfigProvider componentSize="large">
+    <ConfigProvider componentSize='large'>
       <ThemeProvider theme={theme}>
         <Router>
           <AppStyle>
             <Header />
             <Switch>
-              <div className="main-content">
-                <Route exact path="/signup">
+              <div className='main-content'>
+                <Route exact path='/signup'>
                   <Signup />
                 </Route>
-                <Route exact path="/signin">
+                <Route exact path='/signin'>
                   <Signin />
                 </Route>
-                <Route exact path="/dashboard">
+                <Route exact path='/dashboard'>
                   <Dashboard />
                 </Route>
               </div>

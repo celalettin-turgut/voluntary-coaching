@@ -1,11 +1,11 @@
-import { initializeApp } from "@firebase/app";
+import {initializeApp} from '@firebase/app';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-} from "firebase/auth";
-import { getFirestore, addDoc, collection } from "firebase/firestore";
+} from 'firebase/auth';
+import {getFirestore, addDoc, collection} from 'firebase/firestore';
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -69,7 +69,7 @@ const register = async (name, email, password) => {
 const sendPasswordResetEmail = async (email) => {
   try {
     await auth.sendPasswordResetEmail(email);
-    alert("Password reset link sent!");
+    alert('Password reset link sent!');
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -78,9 +78,9 @@ const sendPasswordResetEmail = async (email) => {
 const logout = () => {
   signOut(auth)
     .then(() => {
-      console.log("Signed Out successfully");
+      console.log('Signed Out successfully');
     })
-    .catch("An error occured while signing out");
+    .catch('An error occured while signing out');
 };
 export {
   auth,

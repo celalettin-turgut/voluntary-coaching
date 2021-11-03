@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { Layout } from "antd";
+import styled from 'styled-components';
+import {Layout} from 'antd';
 
-const { Header, Footer } = Layout;
+const {Header, Footer} = Layout;
 
 const footerHeight = 70;
 const headerHeight = 70;
