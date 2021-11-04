@@ -1,3 +1,4 @@
+import React from 'react';
 import {initializeApp} from '@firebase/app';
 import {
   getAuth,
@@ -6,6 +7,7 @@ import {
   signOut,
 } from 'firebase/auth';
 import {getFirestore, addDoc, collection} from 'firebase/firestore';
+import {Alert} from 'antd';
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -78,10 +80,11 @@ const sendPasswordResetEmail = async (email) => {
 const logout = () => {
   signOut(auth)
     .then(() => {
-      console.log('Signed Out successfully');
+      console.log('Logged out');
     })
     .catch('An error occured while signing out');
 };
+
 export {
   auth,
   db,

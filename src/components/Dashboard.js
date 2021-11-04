@@ -22,7 +22,6 @@ const Dashboard = () => {
   //   }
   // };
 
-  console.log(user);
   useEffect(() => {
     if (loading) return;
     if (!user) return history.replace('/');
