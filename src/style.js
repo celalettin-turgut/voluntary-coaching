@@ -6,13 +6,9 @@ const {Header, Footer} = Layout;
 const footerHeight = 70;
 const headerHeight = 70;
 
-export const AppStyle = styled(Layout)`
+export const AppStyle = styled.div`
   width: 100%;
-  //font-family: "open sans";
-
-  .main-content {
-    min-height: calc(100vh - ${footerHeight + headerHeight}px);
-  }
+  height: calc(100vh - ${footerHeight + headerHeight}px);
 `;
 
 export const HeaderStyle = styled(Header)`
