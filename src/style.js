@@ -8,7 +8,9 @@ const headerHeight = 70;
 
 export const AppStyle = styled.div`
   width: 100%;
-  height: calc(100vh - ${footerHeight + headerHeight}px);
+  .main-content {
+    min-height: calc(100vh - ${footerHeight + headerHeight}px);
+  }
 `;
 
 export const HeaderStyle = styled(Header)`

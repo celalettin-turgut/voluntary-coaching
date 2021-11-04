@@ -7,10 +7,11 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import {theme} from './config/theme';
 import {ThemeProvider} from 'styled-components';
 import Main from './Main';
+import PageLoading from './components/UI/PageLoading';
 
 const App = () => {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={PageLoading}>
       <ConfigProvider componentSize='large'>
         <ThemeProvider theme={theme}>
           <Router>

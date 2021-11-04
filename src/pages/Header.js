@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth, logout} from '../firebase';
 import {HeaderStyle} from '../style';
-import {signOut} from '@firebase/auth';
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -25,11 +24,9 @@ const Header = () => {
       <Menu.Item>
         <Link to='/profile'>Profile</Link>
       </Menu.Item>
-      {/* <Menu.Item>
-        <Link to="/signin">
-          Sign Out
-        </Link>
-      </Menu.Item> */}
+      <Menu.Item>
+        <button onClick={logout}>Log Out</button>
+      </Menu.Item>
     </React.Fragment>
   );
   return (
