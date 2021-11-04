@@ -1,3 +1,4 @@
+import React from 'react';
 import {AppStyle} from './style';
 import {ConfigProvider} from 'antd';
 import Signup from './components/Signup';
