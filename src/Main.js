@@ -5,11 +5,15 @@ const Signup = lazy(() => import('./components/Signup'));
 const Signin = lazy(() => import('./components/Signin'));
 const Dashboard = lazy(() => import('./components/Dashboard'));
 const Profile = lazy(() => import('./components/profile'));
+const Home = lazy(() => import('./components/Home'));
 
 const Main = () => {
   return (
     <div className='main-content'>
       <Switch>
+        <Route exact path='/'>
+          <Home />
+        </Route>
         <Route exact path='/signup'>
           <Signup />
         </Route>
