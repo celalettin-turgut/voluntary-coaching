@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {lazy} from 'react';
 import {routes} from './routes';
 import {authRoutes} from './authRoutes';
 import {Redirect, Switch, Route} from 'react-router-dom';
@@ -20,6 +20,7 @@ const Routes = () => {
             <Redirect to='/signin' />
           )
         )}
+        <Route component={() => lazy(() => import('@components/NotFound'))} />
       </Switch>
     </div>
   );
