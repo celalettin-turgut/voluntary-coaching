@@ -1,16 +1,35 @@
 import React, {useEffect} from 'react';
-import {Row, Button, Form, Input, Checkbox} from 'antd';
+import {Row, Button, Form, Input, Checkbox, notification} from 'antd';
 import {StyledCol} from './style';
-import {useHistory} from 'react-router-dom';
+import {signInWithEmailAndPassword} from 'firebase/auth';
 import {useAuthState} from 'react-firebase-hooks/auth';
-import {auth, signIn} from '../firebase';
+import {auth} from '../firebase';
 
-const Signin = () => {
-  const history = useHistory();
+const Signin = ({history}) => {
   const [user, loading, error] = useAuthState(auth);
+  const [form] = Form.useForm();
 
   const onFinish = ({email, password}) => {
-    signIn(email, password);
+    if (form.validateFields) {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((res) => {
+          console.log(res);
+          notification.success({
+            message: 'Sign in',
+            description: 'Signed in successfully!',
+            placement: 'topRight',
+          });
+        })
+        .catch((err) => {
+          console.log(err.message);
+
+          notification.error({
+            message: 'Error',
+            description: err.message,
+            placement: 'topRight',
+          });
+        });
+    }
   };
 
   useEffect(() => {
@@ -49,13 +68,17 @@ const Signin = () => {
           >
             <Form.Item
               labelCol={{span: 24}}
+              validateTrigger='onBlur'
               label='Email'
               name='email'
               rules={[
                 {
-                  required: true,
                   type: 'email',
                   message: 'Please input a valid email!',
+                },
+                {
+                  required: true,
+                  message: 'Please provide an E-Mail!',
                 },
               ]}
             >

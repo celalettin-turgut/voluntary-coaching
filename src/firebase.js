@@ -7,7 +7,6 @@ import {
   signOut,
 } from 'firebase/auth';
 import {getFirestore, addDoc, collection} from 'firebase/firestore';
-import {Alert} from 'antd';
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -53,21 +52,21 @@ const signIn = async (email, password) => {
     alert(err.message);
   }
 };
-const register = async (name, email, password) => {
-  try {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
-    //const user = res.user;
-    // await addDoc(collection(db, "users"), {
-    //   uid: user.uid,
-    //   name,
-    //   authProvider: "local",
-    //   email,
-    // });
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
+// const register = async (name, email, password) => {
+//   try {
+//     const res = await createUserWithEmailAndPassword(auth, email, password);
+//     const user = res.user;
+//     await addDoc(collection(db, "users"), {
+//       uid: user.uid,
+//       name,
+//       authProvider: "local",
+//       email,
+//     });
+//     return res.user;
+//   } catch (err) {
+//     return err;
+//   }
+// };
 const sendPasswordResetEmail = async (email) => {
   try {
     await auth.sendPasswordResetEmail(email);
@@ -90,7 +89,7 @@ export {
   db,
   //signInWithGoogle,
   signIn,
-  register,
+  //register,
   sendPasswordResetEmail,
   logout,
 };

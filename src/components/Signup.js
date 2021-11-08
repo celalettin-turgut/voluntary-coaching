@@ -1,21 +1,43 @@
 import React, {useEffect} from 'react';
-import {Form, Input, Checkbox, Button} from 'antd';
+import {Form, Input, Checkbox, Button, notification} from 'antd';
 import {useAuthState} from 'react-firebase-hooks/auth';
-import {useHistory} from 'react-router-dom';
-import {auth, register} from '../firebase';
+import {auth} from '../firebase';
+import {createUserWithEmailAndPassword} from 'firebase/auth';
 import {StyledCol, StyledRow} from './style';
 
-const Signup = () => {
+const Signup = ({history}) => {
   const [user, loading, error] = useAuthState(auth);
-  const history = useHistory();
+  const [form] = Form.useForm();
 
   const onFinish = ({name, email, password}) => {
-    console.log('Merhaba');
-    register(name, email, password);
+    if (form.validateFields) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((res) => {
+          if (res.user.accessToken) {
+            console.log('bassrili');
+            notification.success({
+              message: 'New Account',
+              description: 'The account created successfully!',
+              placement: 'topRight',
+            });
+            history.push('/dashboard');
+          }
+        })
+        .catch((err) => {
+          console.log(err.message);
+
+          notification.error({
+            message: 'Error',
+            description: err.message,
+            placement: 'topRight',
+          });
+        });
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log(errorInfo);
+    console.log('eeeeeee', errorInfo);
+    console.log('valid', form.validateFields);
   };
 
   useEffect(() => {
@@ -36,6 +58,7 @@ const Signup = () => {
           <h1 style={{textAlign: 'center'}}>SIGN UP</h1>
           <Form
             name='basic'
+            form={form}
             initialValues={{remember: true}}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -51,12 +74,17 @@ const Signup = () => {
             </Form.Item>
             <Form.Item
               labelCol={{span: 24}}
+              validateTrigger='onBlur'
               label='Email'
               name='email'
               rules={[
                 {
                   required: true,
-                  message: 'Please input a valid email!',
+                  message: 'Please input your email!',
+                },
+                {
+                  type: 'email',
+                  message: 'The input is not valid E-Mail!',
                 },
               ]}
             >

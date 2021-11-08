@@ -5,7 +5,7 @@ import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth} from '../firebase';
 import {signOut} from '@firebase/auth';
 import {HeaderStyle} from '../style';
-import {Alert} from 'antd';
+import {notification} from 'antd';
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -13,9 +13,19 @@ const Header = () => {
   const logOut = () => {
     signOut(auth)
       .then(() => {
-        return console.log('Logged out');
+        notification.info({
+          message: 'Sign Out',
+          description: 'Signed out successfully!',
+          placement: 'topRight',
+        });
       })
-      .catch(() => console.log('Error'));
+      .catch(() =>
+        notification.error({
+          message: 'Sign Out',
+          description: 'An error occured signing out',
+          placement: 'topRight',
+        })
+      );
   };
 
   const menu = (
@@ -35,7 +45,7 @@ const Header = () => {
         <Link to='/profile'>Profile</Link>
       </Menu.Item>
       <Menu.Item key='2'>
-        <Link to='/merhaba' onClick={() => logOut()}>
+        <Link to='/' onClick={() => logOut()}>
           Log Out
         </Link>
       </Menu.Item>
