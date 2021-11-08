@@ -11,16 +11,14 @@ const Routes = () => {
     <div>
       <Switch>
         {routes.map((route) => (
-          <Route key={route.path} {...route} />
+          <Route key={route.path} {...route}></Route>
         ))}
-        {authRoutes.map((route) =>
-          user ? (
-            <Route key={route.path} {...route} />
-          ) : (
-            <Redirect to='/signin' />
-          )
-        )}
-        <Route component={() => lazy(() => import('@components/NotFound'))} />
+        {authRoutes.map((route) => (
+          <Route key={route.path} {...route}>
+            {!user ? <Redirect to='/signin' /> : null}
+          </Route>
+        ))}
+        <Route component={lazy(() => import('@components/NotFound'))} />
       </Switch>
     </div>
   );
