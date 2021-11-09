@@ -1,37 +1,49 @@
 import React, {useEffect} from 'react';
 import {Form, Input, Checkbox, Button, notification} from 'antd';
 import {useAuthState} from 'react-firebase-hooks/auth';
-import {auth} from '../firebase';
-import {createUserWithEmailAndPassword} from 'firebase/auth';
+import {auth, db} from '../firebase';
+import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
+import {addDoc, collection} from 'firebase/firestore';
 import {StyledCol, StyledRow} from './style';
 
 const Signup = ({history}) => {
   const [user, loading, error] = useAuthState(auth);
   const [form] = Form.useForm();
 
-  const onFinish = ({name, email, password}) => {
+  const onFinish = async ({name, email, password}) => {
     if (form.validateFields) {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((res) => {
-          if (res.user.accessToken) {
-            console.log('bassrili');
-            notification.success({
-              message: 'New Account',
-              description: 'The account created successfully!',
-              placement: 'topRight',
-            });
-            history.push('/dashboard');
-          }
-        })
-        .catch((err) => {
-          console.log(err.message);
+      try {
+        const res = await createUserWithEmailAndPassword(auth, email, password);
+        const user = res.user;
+        if (res.user.accessToken) {
+          await updateProfile(auth.currentUser, {
+            displayName: name,
+          });
 
-          notification.error({
-            message: 'Error',
-            description: err.message,
+          const docRef = await addDoc(collection(db, 'users'), {
+            uid: user.uid,
+            name,
+            authProvide: 'local',
+            email,
+          });
+          console.log('Basarili');
+          console.log('ref:', docRef);
+          notification.success({
+            message: 'New Account',
+            description: 'The account created successfully!',
             placement: 'topRight',
           });
+          history.push('/dashboard');
+        }
+      } catch (err) {
+        console.log(err.message);
+
+        notification.error({
+          message: 'Error',
+          description: err.message,
+          placement: 'topRight',
         });
+      }
     }
   };
 

@@ -9,6 +9,7 @@ import {notification} from 'antd';
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
+  const history = useHistory();
 
   const logOut = () => {
     signOut(auth)
@@ -53,6 +54,9 @@ const Header = () => {
   );
   return (
     <HeaderStyle>
+      <div className='logo' onClick={() => history.push('/')}>
+        <h1>EducSYS</h1>
+      </div>
       <Menu className='menu' mode='horizontal'>
         {user ? authMenu : menu}
       </Menu>

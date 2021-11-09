@@ -21,7 +21,10 @@ export const HeaderStyle = styled(Header)`
   padding-left: 0;
   padding-right: 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  .logo {
+    margin-left: 40px;
+  }
 
   .menu {
     width: 14em;
