@@ -49,7 +49,7 @@ const Signin = () => {
           >
             <Form.Item
               labelCol={{span: 24}}
-              label='Email'
+              label='Emailemail'
               name='email'
               rules={[
                 {
