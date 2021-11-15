@@ -45,7 +45,7 @@ const Profile = () => {
               </div>
             </div>
             <div>
-              <div>Password</div>
+              <div>Password.</div>
               <div>
                 <BarcodeOutlined className='profileFieldIcon' /> ******
               </div>
