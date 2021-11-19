@@ -1,6 +1,6 @@
 import {Col, Row} from 'antd';
 import React from 'react';
-import {StyledRow} from '../components/style';
+import {StyledRow} from '@components/style';
 import {FooterStyle} from '../style';
 
 const Footer = () => {

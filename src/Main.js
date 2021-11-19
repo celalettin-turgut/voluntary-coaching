@@ -1,5 +1,5 @@
 import React from 'react';
-import Routes from './config/routes';
+import Routes from '@config/routes';
 
 const Main = () => {
   return (
