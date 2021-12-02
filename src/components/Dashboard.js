@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [user, loading, error] = useAuthState(auth);
   //const [name, setName] = useState('');
   const history = useHistory();
-  console.log(user);
+
   // const fetchUserName = async () => {
   //   try {
   //     const query = await db

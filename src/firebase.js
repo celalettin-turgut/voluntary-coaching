@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
+import {getDatabase} from 'firebase/database';
 import {getFirestore, addDoc, collection} from 'firebase/firestore';
 
 export const firebaseConfig = {
@@ -20,7 +21,8 @@ export const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore();
+//const db = getFirestore();
+const database = getDatabase(app);
 
 // const googleProvider = new firebase.auth.GoogleAuthProvider();
 // const signInWithGoogle = async () => {
@@ -86,7 +88,8 @@ const logout = () => {
 
 export {
   auth,
-  db,
+  database,
+  //db,
   //signInWithGoogle,
   signIn,
   //register,

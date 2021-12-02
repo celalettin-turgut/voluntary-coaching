@@ -4,6 +4,7 @@ import AppProvider from './_context';
 import './index.css';
 import 'antd/dist/antd.css';
 import App from './App';
+import './config/i18n';
 
 render(
   <React.StrictMode>

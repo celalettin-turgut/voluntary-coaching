@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {Form, Input, Checkbox, Button, notification} from 'antd';
 import {useAuthState} from 'react-firebase-hooks/auth';
-import {auth, db} from '../firebase';
+import {auth, database} from '../firebase';
 import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
-import {addDoc, collection} from 'firebase/firestore';
+import {ref, set} from 'firebase/database';
 import {StyledCol, StyledRow} from './style';
 
 const Signup = ({history}) => {
@@ -15,19 +15,18 @@ const Signup = ({history}) => {
       try {
         const res = await createUserWithEmailAndPassword(auth, email, password);
         const user = res.user;
-        if (res.user.accessToken) {
+        if (user.accessToken) {
           await updateProfile(auth.currentUser, {
             displayName: name,
           });
 
-          const docRef = await addDoc(collection(db, 'users'), {
-            uid: user.uid,
-            name,
-            authProvide: 'local',
+          set(ref(database, 'users'), {
+            username: name,
             email,
+            profile_picture: 'httpLinkToProfilePicture',
           });
           console.log('Basarili');
-          console.log('ref:', docRef);
+
           notification.success({
             message: 'New Account',
             description: 'The account created successfully!',
