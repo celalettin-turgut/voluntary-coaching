@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useAuthState} from 'react-firebase-hooks/auth';
-import {auth} from '../../firebase';
+import {auth, database} from '../../firebase';
+import {ref, onValue} from 'firebase/database';
 import {
   UserOutlined,
   MailOutlined,
@@ -11,7 +12,15 @@ import {Col, Row, Space, Avatar} from 'antd';
 
 const Profile = () => {
   const [user, loading, error] = useAuthState(auth);
-  console.log(error);
+  console.log(user.uid);
+
+  useEffect(() => {
+    const userRef = ref(database, 'users/' + user.uid);
+    onValue(userRef, (snapshot) => {
+      console.log(snapshot.val());
+    });
+  }, [user.uid]);
+
   return (
     <>
       <Row justify='center'>

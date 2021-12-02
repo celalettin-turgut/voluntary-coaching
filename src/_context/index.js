@@ -1,6 +1,7 @@
 import React, {createContext, useReducer, useEffect, useState} from 'react';
 import {CHANGE_THEME} from './actions';
 import {reducer} from './reducer';
+import PageLoading from '@UI/PageLoading';
 
 export const AppContext = createContext();
 
@@ -15,6 +16,8 @@ const AppProvider = ({children}) => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const changeTheme = (id) => {
@@ -29,7 +32,7 @@ const AppProvider = ({children}) => {
         dispatch,
       }}
     >
-      {loading && <p>App Starting...</p>}
+      {loading && <PageLoading />}
       {!loading && children}
     </AppContext.Provider>
   );
