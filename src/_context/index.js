@@ -26,6 +26,7 @@ const AppProvider = ({children}) => {
       value={{
         ...state,
         changeTheme,
+        dispatch,
       }}
     >
       {loading && <p>App Starting...</p>}

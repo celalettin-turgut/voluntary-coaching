@@ -20,12 +20,11 @@ const Signup = ({history}) => {
             displayName: name,
           });
 
-          set(ref(database, 'users'), {
-            username: name,
+          set(ref(database, 'users/' + user.uid), {
+            displayName: name,
             email,
             profile_picture: 'httpLinkToProfilePicture',
           });
-          console.log('Basarili');
 
           notification.success({
             message: 'New Account',
