@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {Form, Input, Checkbox, Button, notification} from 'antd';
+import {Link} from 'react-router-dom';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth, database} from '../firebase';
 import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
@@ -116,6 +117,13 @@ const Signup = ({history}) => {
               //wrapperCol={{ offset: 8, span: 16 }}
             >
               <Checkbox>Remember me</Checkbox>
+            </Form.Item>
+            <Form.Item style={{marginBottom: '0'}}>
+              <div>
+                <p>
+                  Already member? <Link to='/signin'>Sign In</Link>
+                </p>
+              </div>
             </Form.Item>
 
             <Form.Item

@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {Row, Button, Form, Input, Checkbox, notification} from 'antd';
 import {StyledCol} from './style';
+import {Link} from 'react-router-dom';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth} from '../firebase';
@@ -94,8 +95,19 @@ const Signin = ({history}) => {
               <Input.Password />
             </Form.Item>
 
-            <Form.Item name='remember' valuePropName='checked'>
+            <Form.Item
+              name='remember'
+              valuePropName='checked'
+              style={{marginBottom: '0'}}
+            >
               <Checkbox>Remember me</Checkbox>
+            </Form.Item>
+            <Form.Item style={{marginBottom: '0'}}>
+              <div>
+                <p>
+                  No Account? <Link to='/signup'>Sign Up</Link>
+                </p>
+              </div>
             </Form.Item>
 
             <Form.Item>
