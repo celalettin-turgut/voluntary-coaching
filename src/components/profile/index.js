@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth, database} from '../../firebase';
 import {ref, onValue} from 'firebase/database';
@@ -11,15 +11,16 @@ import {
 import {Col, Row, Space, Avatar} from 'antd';
 
 const Profile = () => {
-  const [user, loading, error] = useAuthState(auth);
-  console.log(user.uid);
+  const [userData, loading, error] = useAuthState(auth);
+  const [user, setUser] = useState({});
+  console.log(userData);
 
   useEffect(() => {
-    const userRef = ref(database, 'users/' + user.uid);
+    const userRef = ref(database, 'users/' + userData.uid);
     onValue(userRef, (snapshot) => {
-      console.log(snapshot.val());
+      setUser(() => snapshot.val());
     });
-  }, [user.uid]);
+  }, [userData.uid]);
 
   return (
     <>

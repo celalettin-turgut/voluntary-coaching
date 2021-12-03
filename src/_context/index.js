@@ -1,5 +1,4 @@
 import React, {createContext, useReducer, useEffect, useState} from 'react';
-import {CHANGE_THEME} from './actions';
 import {reducer} from './reducer';
 import PageLoading from '@UI/PageLoading';
 
@@ -20,15 +19,10 @@ const AppProvider = ({children}) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const changeTheme = (id) => {
-    dispatch({type: CHANGE_THEME});
-  };
-
   return (
     <AppContext.Provider
       value={{
         ...state,
-        changeTheme,
         dispatch,
       }}
     >
