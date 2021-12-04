@@ -1,5 +1,5 @@
 import React from 'react';
-import {Menu, Layout, Space} from 'antd';
+import {Menu, Image} from 'antd';
 import {Link, useHistory} from 'react-router-dom';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth} from '../firebase';
@@ -55,7 +55,7 @@ const Header = () => {
   return (
     <HeaderStyle>
       <div className='logo' onClick={() => history.push('/')}>
-        <h1>EducSYS</h1>
+        <Image src='logo.png' preview={false} />
       </div>
       <Menu className='menu' mode='horizontal'>
         {user ? authMenu : menu}
