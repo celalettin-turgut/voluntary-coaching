@@ -4,7 +4,7 @@ import {Layout} from 'antd';
 const {Header, Footer} = Layout;
 
 const footerHeight = 70;
-const headerHeight = 70;
+const headerHeight = 120;
 
 export const AppStyle = styled.div`
   width: 100%;
@@ -15,7 +15,7 @@ export const AppStyle = styled.div`
 
 export const HeaderStyle = styled(Header)`
   height: ${headerHeight}px;
-  background-color: #fff;
+  background-color: rgba(85, 104, 87, 0.4);
   //position: sticky;
   //top: 0;
   padding-left: 0;
@@ -23,7 +23,8 @@ export const HeaderStyle = styled(Header)`
   display: flex;
   justify-content: space-between;
   .logo {
-    margin-left: 40px;
+    margin-left: 60px;
+    margin-top: 10px;
   }
 
   .menu {
