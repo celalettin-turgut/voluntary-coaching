@@ -1,4 +1,5 @@
 const path = require(`path`);
+const CracoLessPlugin = require('craco-less');
 
 module.exports = {
   webpack: {
@@ -11,4 +12,19 @@ module.exports = {
       '@UI': path.resolve(__dirname, 'src/UI'),
     },
   },
+  plugins: [
+    {
+      plugin: CracoLessPlugin,
+      options: {
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: {
+              'font-size-base': '18px',
+            },
+            javascriptEnabled: true,
+          },
+        },
+      },
+    },
+  ],
 };

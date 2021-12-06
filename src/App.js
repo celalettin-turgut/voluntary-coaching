@@ -1,4 +1,5 @@
 import React, {Suspense} from 'react';
+import './App.less';
 import {AppStyle} from './style';
 import {ConfigProvider} from 'antd';
 import Header from '@layout/Header';
