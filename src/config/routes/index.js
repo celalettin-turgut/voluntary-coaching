@@ -4,7 +4,6 @@ import {authRoutes} from '@config/routes/authRoutes.js';
 import {Redirect, Switch, Route} from 'react-router-dom';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth} from '../../firebase';
-
 const Routes = () => {
   const [user, loading, error] = useAuthState(auth);
   return (
