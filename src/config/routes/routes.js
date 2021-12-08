@@ -4,16 +4,16 @@ export const routes = [
   {
     exact: true,
     path: '/signup',
-    component: lazy(() => import('@components/Signup')),
+    component: lazy(() => import('@pages/Signup')),
   },
   {
     exact: true,
     path: '/signin',
-    component: lazy(() => import('@components/Signin')),
+    component: lazy(() => import('@pages/Signin')),
   },
   {
     exact: true,
     path: '/',
-    component: lazy(() => import('@components/Home')),
+    component: lazy(() => import('@pages/Home')),
   },
 ];

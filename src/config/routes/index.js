@@ -17,7 +17,7 @@ const Routes = () => {
             {!user ? <Redirect to='/signin' /> : null}
           </Route>
         ))}
-        <Route component={lazy(() => import('@components/NotFound'))} />
+        <Route component={lazy(() => import('@pages/NotFound'))} />
       </Switch>
     </div>
   );

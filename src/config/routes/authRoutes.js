@@ -3,16 +3,16 @@ export const authRoutes = [
   {
     exact: true,
     path: '/profile',
-    component: lazy(() => import('@components/profile')),
+    component: lazy(() => import('@pages/profile')),
   },
   {
     exact: true,
     path: '/profile/edit',
-    component: lazy(() => import('@components/profile/EditProfile')),
+    component: lazy(() => import('@pages/profile/EditProfile')),
   },
   {
     exact: true,
     path: '/dashboard',
-    component: lazy(() => import('@components/Dashboard')),
+    component: lazy(() => import('@pages/Dashboard')),
   },
 ];

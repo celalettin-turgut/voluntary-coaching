@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyledCol, StyledRow} from './style';
+import {StyledCol, StyledRow} from '../pages/style';
 import zipcodes from '../_helpers/zipcodes.json';
 import {Button, Form, Input, Select} from 'antd';
 import {auth, database} from '../firebase';
@@ -14,12 +14,24 @@ const AddAdForm = () => {
 
   const onFinish = ({title, description, tasks, city}) => {
     console.log(city);
-    set(ref(database, 'ads/' + new Date().getTime()), {
+    const pushID = ref(database, 'ads/' + new Date().getTime());
+    console.log(pushID);
+    set(pushID, {
       title: title,
       description: description,
       tasks: tasks,
       city: city,
     });
+  };
+
+  const validateMessages = {
+    required: 'This field cannot be empty!',
+    types: {
+      email: '${label} is not a valid email!',
+    },
+    string: {
+      min: '${label} must be minimum ${min} characters',
+    },
   };
 
   return (
@@ -36,10 +48,14 @@ const AddAdForm = () => {
           autoComplete='off'
           form={form}
           onFinish={onFinish}
+          validateMessages={validateMessages}
+          validateTrigger='onBlur'
+          scrollToFirstError='true'
         >
           <Form.Item
             name='title'
             label='Title: What is the goal of your project?'
+            rules={[{required: true}, {min: 3}]}
           >
             <Input />
           </Form.Item>
@@ -47,6 +63,7 @@ const AddAdForm = () => {
           <Form.Item
             name='description'
             label='Description: What is supposed to do?'
+            rules={[{required: true}, {min: 3}]}
           >
             <Input.TextArea />
           </Form.Item>
@@ -54,6 +71,7 @@ const AddAdForm = () => {
           <Form.Item
             name='tasks'
             label='Tasks: What is your expectations from the volunteer? '
+            rules={[{required: true}, {min: 3}]}
           >
             <Input />
           </Form.Item>
@@ -62,7 +80,7 @@ const AddAdForm = () => {
             <Input value={zip} onChange={(e) => setZip(e.target.value)} />
           </Form.Item> */}
 
-          <Form.Item name='city' label='City'>
+          <Form.Item name='city' label='City' rules={[{required: true}]}>
             <Select
               showSearch
               optionFilterProp='children'
