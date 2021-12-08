@@ -9,6 +9,7 @@ import {theme} from '@config/theme';
 import {ThemeProvider} from 'styled-components';
 import Main from './Main';
 import PageLoading from '@UI/PageLoading';
+import Navbar from '@components/Navbar';
 
 const App = () => {
   return (
@@ -17,7 +18,8 @@ const App = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <AppStyle>
-              <Header />
+              {/* <Header /> */}
+              <Navbar />
               <Main />
               <Footer />
             </AppStyle>
