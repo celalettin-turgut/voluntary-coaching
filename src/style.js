@@ -16,29 +16,12 @@ export const AppStyle = styled.div`
   }
 `;
 
-export const HeaderStyle = styled(Header)`
+export const HeaderStyle = styled.div`
   height: ${headerHeight}px;
-  background-color: #fff;
-  //position: sticky;
-  //top: 0;
-  padding-left: 0;
-  padding-right: 0;
-  display: flex;
-  justify-content: space-between;
-  .logo {
-    margin-left: 60px;
-    margin-top: 10px;
-  }
-
-  .menu {
-    width: 14em;
-    display: flex;
-    justify-content: space-between;
-  }
 `;
 
 export const FooterStyle = styled(Footer)`
-  height: ${footerHeight}px;
+  min-height: ${footerHeight}px;
   background-color: rgba(85, 104, 87, 0.4);
   width: 100%;
 
@@ -46,5 +29,12 @@ export const FooterStyle = styled(Footer)`
     display: flex;
     width: 100%;
     justify-content: space-between;
+
+    @media (max-width: 790px) {
+      justify-content: center;
+      .ant-col {
+        //margin-bottom: 10px;
+      }
+    }
   }
 `;
