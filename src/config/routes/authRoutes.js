@@ -15,4 +15,9 @@ export const authRoutes = [
     path: '/dashboard',
     component: lazy(() => import('@pages/Dashboard')),
   },
+  {
+    exact: true,
+    path: '/create',
+    component: lazy(() => import('@components/AddAdForm')),
+  },
 ];

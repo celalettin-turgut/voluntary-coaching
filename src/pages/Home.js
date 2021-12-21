@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import AddAdForm from '../components/AddAdForm';
+import Search from '../components/search';
 import {auth} from '../firebase';
 
 const Home = () => {
@@ -18,8 +19,7 @@ const Home = () => {
   }, [loading, user, history]);
   return (
     <div>
-      <h1>My Landing Page...</h1>
-      <AddAdForm />
+      <Search />
     </div>
   );
 };

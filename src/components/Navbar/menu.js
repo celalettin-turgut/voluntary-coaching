@@ -42,7 +42,7 @@ const Menu = () => {
       </AntMenu.Item>
 
       <AntMenu.Item key='2'>
-        <Link to='/about'>About</Link>
+        <Link to='/create'>Create Your Project</Link>
       </AntMenu.Item>
 
       <AntMenu.Item key='3'>

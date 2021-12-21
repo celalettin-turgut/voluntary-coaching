@@ -6,11 +6,7 @@ export const routes = [
     path: '/about',
     component: lazy(() => import('@pages/About')),
   },
-  {
-    exact: true,
-    path: '/contact',
-    component: lazy(() => import('@pages/Contact')),
-  },
+
   {
     exact: true,
     path: '/signup',
