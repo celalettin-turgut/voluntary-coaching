@@ -2,10 +2,16 @@ import React from 'react';
 import SearchStyle from './style';
 import {Col, Row, Form, Select, Button} from 'antd';
 import zipcodes from '../../_helpers/zipcodes.json';
+import {auth, database} from '../../firebase';
+import {ref, set, onValue} from 'firebase/database';
 
 const Search = () => {
   const onSearch = (value) => {
-    console.log(value);
+    // const starCountRef = ref(database, 'ads');
+    // onValue(starCountRef, (snapshot) => {
+    //   const data = snapshot.val();
+    //   console.log(data);
+    // });
   };
   return (
     <SearchStyle justify='center'>
@@ -13,36 +19,38 @@ const Search = () => {
         <h1 className='text-header'>Einfach Helfen </h1>
         <h2 className='text'>Finde jetzt dein Project</h2>
         <Row justify='center' className='search-container'>
-          <Form
-            onFinish={onSearch}
-            size='large'
-            wrapperCol={{span: 20}}
-            layout='inline'
-            name='horizontal_login'
-          >
-            <Form.Item name='city'>
-              <Select
-                placeholder='Select a city'
-                showSearch
-                optionFilterProp='children'
-                filterOption={(input, option) =>
-                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
-                  0
-                }
-              >
-                {zipcodes.map((city) => {
-                  return (
-                    <Select.Option key={city} value={city}>
-                      {city}
-                    </Select.Option>
-                  );
-                })}
-              </Select>
-            </Form.Item>
-            <Form.Item>
-              <Button htmlType='submit'>Search</Button>
-            </Form.Item>
-          </Form>
+          <Col span={20} offset={2}>
+            <Form
+              onFinish={onSearch}
+              size='large'
+              layout='inline'
+              name='horizontal_login'
+            >
+              <Form.Item name='city'>
+                <Select
+                  placeholder='Select a city'
+                  showSearch
+                  optionFilterProp='children'
+                  filterOption={(input, option) =>
+                    option.children
+                      .toLowerCase()
+                      .indexOf(input.toLowerCase()) >= 0
+                  }
+                >
+                  {zipcodes.map((city) => {
+                    return (
+                      <Select.Option key={city} value={city}>
+                        {city}
+                      </Select.Option>
+                    );
+                  })}
+                </Select>
+              </Form.Item>
+              <Form.Item>
+                <Button htmlType='submit'>Search</Button>
+              </Form.Item>
+            </Form>
+          </Col>
         </Row>
       </Col>
     </SearchStyle>
