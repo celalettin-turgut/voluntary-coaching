@@ -1,21 +1,54 @@
 import React, {useEffect} from 'react';
-import {Form, Input, Checkbox, Button} from 'antd';
+import {Form, Input, Checkbox, Button, notification} from 'antd';
+import {Link} from 'react-router-dom';
 import {useAuthState} from 'react-firebase-hooks/auth';
-import {useHistory} from 'react-router-dom';
-import {auth, register} from '../firebase';
+import {auth, database} from '../firebase';
+import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
+import {ref, set} from 'firebase/database';
 import {StyledCol, StyledRow} from './style';
 
-const Signup = () => {
+const Signup = ({history}) => {
   const [user, loading, error] = useAuthState(auth);
-  const history = useHistory();
+  const [form] = Form.useForm();
 
-  const onFinish = ({name, email, password}) => {
-    console.log('Merhaba');
-    register(name, email, password);
+  const onFinish = async ({name, email, password}) => {
+    if (form.validateFields) {
+      try {
+        const res = await createUserWithEmailAndPassword(auth, email, password);
+        const user = res.user;
+        if (user.accessToken) {
+          await updateProfile(auth.currentUser, {
+            displayName: name,
+          });
+
+          set(ref(database, 'users/' + user.uid), {
+            displayName: name,
+            email,
+            profile_picture: 'httpLinkToProfilePicture',
+          });
+
+          notification.success({
+            message: 'New Account',
+            description: 'The account created successfully!',
+            placement: 'topRight',
+          });
+          history.push('/dashboard');
+        }
+      } catch (err) {
+        console.log(err.message);
+
+        notification.error({
+          message: 'Error',
+          description: err.message,
+          placement: 'topRight',
+        });
+      }
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log(errorInfo);
+    console.log('eeeeeee', errorInfo);
+    console.log('valid', form.validateFields);
   };
 
   useEffect(() => {
@@ -36,6 +69,7 @@ const Signup = () => {
           <h1 style={{textAlign: 'center'}}>SIGN UP</h1>
           <Form
             name='basic'
+            form={form}
             initialValues={{remember: true}}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -51,12 +85,17 @@ const Signup = () => {
             </Form.Item>
             <Form.Item
               labelCol={{span: 24}}
+              validateTrigger='onBlur'
               label='Email'
               name='email'
               rules={[
                 {
                   required: true,
-                  message: 'Please input a valid email!',
+                  message: 'Please input your email!',
+                },
+                {
+                  type: 'email',
+                  message: 'The input is not valid E-Mail!',
                 },
               ]}
             >
@@ -78,6 +117,13 @@ const Signup = () => {
               //wrapperCol={{ offset: 8, span: 16 }}
             >
               <Checkbox>Remember me</Checkbox>
+            </Form.Item>
+            <Form.Item style={{marginBottom: '0'}}>
+              <div>
+                <p>
+                  Already member? <Link to='/signin'>Sign In</Link>
+                </p>
+              </div>
             </Form.Item>
 
             <Form.Item

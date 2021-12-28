@@ -1,8 +1,8 @@
-import {CHANGE_THEME} from './actions';
+import {LOAD_USER} from './actions';
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case CHANGE_THEME:
+    case LOAD_USER:
       return {...state};
 
     default:

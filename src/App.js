@@ -1,21 +1,25 @@
 import React, {Suspense} from 'react';
+import './App.less';
 import {AppStyle} from './style';
 import {ConfigProvider} from 'antd';
-import Header from './pages/Header';
-import Footer from './pages/Footer';
+import Header from '@layout/Header';
+import Footer from '@layout/Footer';
 import {BrowserRouter as Router} from 'react-router-dom';
-import {theme} from './config/theme';
+import {theme} from '@config/theme';
 import {ThemeProvider} from 'styled-components';
 import Main from './Main';
+import PageLoading from '@UI/PageLoading';
+import Navbar from '@components/Navbar';
 
 const App = () => {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<PageLoading />}>
       <ConfigProvider componentSize='large'>
         <ThemeProvider theme={theme}>
           <Router>
             <AppStyle>
-              <Header />
+              {/* <Header /> */}
+              <Navbar />
               <Main />
               <Footer />
             </AppStyle>

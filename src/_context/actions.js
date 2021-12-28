@@ -1,1 +1,1 @@
-export const CHANGE_THEME = 'CHANGE THEME';
+export const LOAD_USER = 'LOAD_USER';

@@ -1,24 +1,10 @@
-import React, {lazy} from 'react';
-import {Switch, Route} from 'react-router-dom';
-
-const Signup = lazy(() => import('./components/Signup'));
-const Signin = lazy(() => import('./components/Signin'));
-const Dashboard = lazy(() => import('./components/Dashboard'));
+import React from 'react';
+import Routes from '@config/routes';
 
 const Main = () => {
   return (
-    <div>
-      <Switch>
-        <Route exact path='/signup'>
-          <Signup />
-        </Route>
-        <Route exact path='/signin'>
-          <Signin />
-        </Route>
-        <Route exact path='/dashboard'>
-          <Dashboard />
-        </Route>
-      </Switch>
+    <div className='main-content'>
+      <Routes />
     </div>
   );
 };

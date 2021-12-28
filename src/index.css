@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Ubuntu', 'Segoe UI', 'Roboto',
-    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Ubuntu, Verdana, 'Verdana Ref', 'Lucida Grande',
+    'Lucida Sans Unicode', 'DejaVu Sans', 'Bitstream Vera Sans',
+    'Liberation Sans', Corbel, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

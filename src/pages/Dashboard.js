@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {useHistory} from 'react-router';
-import {auth, db, logout} from '../firebase';
+import {auth, logout} from '../firebase';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -22,7 +22,6 @@ const Dashboard = () => {
   //   }
   // };
 
-  console.log(user);
   useEffect(() => {
     if (loading) return;
     if (!user) return history.replace('/');

@@ -1,0 +1,111 @@
+@import '~antd/dist/antd.less';
+
+.menuBar {
+  border-bottom: solid 1px #e8e8e8;
+  overflow: hidden;
+  box-shadow: 0 0 30px #f3f1f1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 150px;
+}
+
+.logo a {
+  display: inline-block;
+  font-size: 20px;
+  padding: 19px 20px;
+  text-transform: capitalize;
+}
+
+.menuContainer {
+  //width: calc(100% - 150px);
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.leftMenu {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.menuContainer .ant-menu-item {
+  position: relative;
+  top: 10px;
+  padding: 0px 2px;
+}
+
+.menuContainer .ant-menu-item li {
+  display: flex;
+  align-items: center;
+}
+
+.menuContainer .ant-menu-item a {
+  padding: 5px 10px;
+}
+
+.menuContainer .ant-menu-horizontal {
+  border-bottom: none;
+  display: flex;
+  justify-content: end;
+}
+
+.menuContainer .ant-menu-horizontal .ant-menu-item::after {
+  display: none;
+}
+
+.barsMenu {
+  height: 32px;
+  padding: 6px;
+  margin-top: 8px;
+  display: none;
+  background: none;
+}
+
+.ant-drawer-body {
+  padding: 0;
+}
+
+.barsMenu > span {
+  display: block;
+}
+
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-item,
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-submenu {
+  display: inline-block;
+  width: 100%;
+}
+
+.ant-drawer-body .ant-menu-horizontal {
+  border-bottom: none;
+}
+
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-item:hover {
+  border-bottom-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .barsMenu {
+    display: flex;
+  }
+
+  .leftMenu {
+    display: none;
+  }
+
+  .logo a {
+    margin-left: -20px;
+  }
+
+  .menuContainer .ant-menu-item,
+  .menuContainer .ant-menu-submenu-title {
+    padding: 1px 20px;
+  }
+
+  .logo a {
+    padding: 10px 20px;
+  }
+}

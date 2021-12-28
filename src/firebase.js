@@ -1,3 +1,4 @@
+import React from 'react';
 import {initializeApp} from '@firebase/app';
 import {
   getAuth,
@@ -5,7 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import {getFirestore, addDoc, collection} from 'firebase/firestore';
+import {getDatabase} from 'firebase/database';
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -19,7 +20,8 @@ export const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore();
+//const db = getFirestore();
+const database = getDatabase(app);
 
 // const googleProvider = new firebase.auth.GoogleAuthProvider();
 // const signInWithGoogle = async () => {
@@ -51,21 +53,21 @@ const signIn = async (email, password) => {
     alert(err.message);
   }
 };
-const register = async (name, email, password) => {
-  try {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
-    //const user = res.user;
-    // await addDoc(collection(db, "users"), {
-    //   uid: user.uid,
-    //   name,
-    //   authProvider: "local",
-    //   email,
-    // });
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
+// const register = async (name, email, password) => {
+//   try {
+//     const res = await createUserWithEmailAndPassword(auth, email, password);
+//     const user = res.user;
+//     await addDoc(collection(db, "users"), {
+//       uid: user.uid,
+//       name,
+//       authProvider: "local",
+//       email,
+//     });
+//     return res.user;
+//   } catch (err) {
+//     return err;
+//   }
+// };
 const sendPasswordResetEmail = async (email) => {
   try {
     await auth.sendPasswordResetEmail(email);
@@ -78,16 +80,18 @@ const sendPasswordResetEmail = async (email) => {
 const logout = () => {
   signOut(auth)
     .then(() => {
-      console.log('Signed Out successfully');
+      console.log('Logged out');
     })
     .catch('An error occured while signing out');
 };
+
 export {
   auth,
-  db,
+  database,
+  //db,
   //signInWithGoogle,
   signIn,
-  register,
+  //register,
   sendPasswordResetEmail,
   logout,
 };

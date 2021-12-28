@@ -1,0 +1,352 @@
+{
+  "WELLCOME": {
+    "tr-TR": "Hosgeldin",
+    "en-US": "Wellcome",
+    "de-DE": "Willkommen"
+  },
+  "HOME": {
+    "tr-TR": "Ana sayfa",
+    "en-US": "Home",
+    "de-DE": "Startseite"
+  },
+  "JOINAMEETING": {
+    "tr-TR": "Bir Toplantiya Katil",
+    "en-US": "Join a meeting",
+    "de-DE": "an einem Meeting teilnehmen"
+  },
+  "CREATEAMEETING": {
+    "tr-TR": "Bir Toplanti olustur",
+    "en-US": "Create a meeting",
+    "de-DE": "an einem Meeting erstellen"
+  },
+  "CREATEMEETING": {
+    "tr-TR": "Toplanti olustur",
+    "en-US": "Create meeting",
+    "de-DE": "Meeting erstellen"
+  },
+  "CREATE": {
+    "tr-TR": "Olustur",
+    "en-US": "Create",
+    "de-DE": "Eintragen"
+  },
+  "START": {
+    "tr-TR": "Hemen Basla",
+    "en-US": "Start now",
+    "de-DE": "Jetzt anfangen"
+  },
+  "SIGNIN": {
+    "tr-TR": "Giris",
+    "en-US": "Signin",
+    "de-DE": "Einloggen"
+  },
+  "SIGNUP": {
+    "tr-TR": "Kayit",
+    "en-US": "Signup",
+    "de-DE": "Anmelden"
+  },
+  "LOGOUT": {
+    "tr-TR": "Cikis",
+    "en-US": "Logout",
+    "de-DE": "Abmelden"
+  },
+  "PROFILE": {
+    "tr-TR": "Profil",
+    "en-US": "Profile",
+    "de-DE": "Profile"
+  },
+  "DISPLAY_NAME": {
+    "tr-TR": "Görünen isim",
+    "en-US": "Display Name",
+    "de-DE": "Anzeigename"
+  },
+  "EMAIL": {
+    "tr-TR": "E-mail",
+    "en-US": "E-mail",
+    "de-DE": "E-mail"
+  },
+  "PASSWORD": {
+    "tr-TR": "Sifre",
+    "en-US": "Password",
+    "de-DE": "Kennword"
+  },
+  "MIN": {
+    "tr-TR": "dk.",
+    "en-US": "min",
+    "de-DE": "min"
+  },
+  "SCHEDULEAMEETING": {
+    "tr-TR": "Toplanti planla",
+    "en-US": "Schedule a Meeting",
+    "de-DE": "Ein Treffen planen"
+  },
+  "CALENDAR": {
+    "tr-TR": "Takvim",
+    "en-US": "Calendar",
+    "de-DE": "Kalendar"
+  },
+  "DASHBOARD_DESCRIPTION": {
+    "tr-TR": "Iyi bir gün!",
+    "en-US": "A good day!",
+    "de-DE": "Einen schönen Tag!"
+  },
+  "MODERATORS": {
+    "tr-TR": "Yöneticiler",
+    "en-US": "Moderators",
+    "de-DE": "Moderatoren/innen"
+  },
+  "ATTENDEES": {
+    "tr-TR": "Katilimcilar",
+    "en-US": "Attendees",
+    "de-DE": "Teilnehmer"
+  },
+  "ADD": {
+    "tr-TR": "Ekle",
+    "en-US": "Add",
+    "de-DE": "hinzufügen"
+  },
+  "DESCRIPTION": {
+    "tr-TR": "Aciklama",
+    "en-US": "Description",
+    "de-DE": "Beschreibung"
+  },
+  "MYROOM": {
+    "tr-TR": "Benim Odam",
+    "en-US": "My room",
+    "de-DE": "Mein raum"
+  },
+  "ROOMLINK": {
+    "tr-TR": "Oda baglantisi",
+    "en-US": "Room link",
+    "de-DE": "Raum Link"
+  },
+  "CANCEL": {
+    "tr-TR": "Iptal",
+    "en-US": "Cancel",
+    "de-DE": "Abbrechen"
+  },
+  "CHANGE_MY_ROO_PASSWORD": {
+    "tr-TR": "Oda sifremi degistir",
+    "en-US": "Change my room's password",
+    "de-DE": "Ändern das Passwort meines Raum"
+  },
+  "EVENTS_TAB_TITLE": {
+    "tr-TR": "Alt Meeting Listesi",
+    "en-US": "Sub Meeting List",
+    "de-DE": "Sub Meeting List"
+  },
+  "JOIN": {
+    "tr-TR": "Katil",
+    "en-US": "Join",
+    "de-DE": "Teilnehmen"
+  },
+  "de-DE": {
+    "tr-TR": "Deutsch",
+    "en-US": "Deutsch",
+    "de-DE": "Deutsch"
+  },
+  "tr-TR": {
+    "tr-TR": "Türkce",
+    "en-US": "Türkce",
+    "de-DE": "Türkce"
+  },
+  "en-US": {
+    "tr-TR": "English",
+    "en-US": "English",
+    "de-DE": "English"
+  },
+  "DAILY_MEETING_LOADING_ERROR": {
+    "tr-TR": "Bugünkü toplantilariniz yüklenirken bir hata olustu",
+    "en-US": "An error occurred while loading your meetings today",
+    "de-DE": "Beim Laden Ihrer Besprechungen ist heute ein Fehler aufgetreten"
+  },
+  "DELETE_MEETING_CONFIRM": {
+    "tr-TR": "Toplantiyi iptal etmek istediginizden amin misiniz?",
+    "en-US": "Are you sure you want to cancel the meeting?",
+    "de-DE": "Möchten Sie das Meeting wirklich abbrechen?"
+  },
+  "ARE_YOU_SURE": {
+    "tr-TR": "Emin misiniz?",
+    "en-US": "Are you sure?",
+    "de-DE": "Sind Sie sicher?"
+  },
+  "YES": {
+    "tr-TR": "Evet",
+    "en-US": "Yes",
+    "de-DE": "Ja"
+  },
+  "NO": {
+    "tr-TR": "Hayir",
+    "en-US": "No",
+    "de-DE": "Nein"
+  },
+  "DELETE": {
+    "tr-TR": "Sil",
+    "en-US": "Delete",
+    "de-DE": "Löchen"
+  },
+  "EDIT": {
+    "tr-TR": "Düzenle",
+    "en-US": "Edit",
+    "de-DE": "Bearbeiten"
+  },
+  "TITLE": {
+    "tr-TR": "Baslik",
+    "en-US": "Title",
+    "de-DE": "Titel"
+  },
+  "SAVE_CHANGES": {
+    "tr-TR": "Degisiklikleri Sakla",
+    "en-US": "Save changes",
+    "de-DE": "Änderungen speichern"
+  },
+  "ATTENDIES": {
+    "tr-TR": "Katilimcilar",
+    "en-US": "Attendies",
+    "de-DE": "Teilnehmer"
+  },
+  "ALL_MIC_MUTE_ON_START": {
+    "tr-TR": "Baslangista bütün mikrofonlari kapali tut",
+    "en-US": "Mute all microphones on start",
+    "de-DE": "Schalten Sie beim Start alle Mikrofone stumm"
+  },
+  "RECORD": {
+    "tr-TR": "Toplanti kaydi",
+    "en-US": "Meeting recording",
+    "de-DE": "Aufzeichnung"
+  },
+  "SETTINGS": {
+    "tr-TR": "Ayarlar",
+    "en-US": "Settings",
+    "de-DE": "Einstelungen"
+  },
+  "WELLCOME_MESSAGE": {
+    "tr-TR": "Hosgeldiniz mesaji",
+    "en-US": "Wellcome Message",
+    "de-DE": "Willkommen Nachricht"
+  },
+  "MEETING_DURATION": {
+    "tr-TR": "Toplanti Süresi",
+    "en-US": "Meeting Duration",
+    "de-DE": "Meeting Dauer"
+  },
+  "MEETING_RECODABLE": {
+    "tr-TR": "Toplanti kaydedilebilir",
+    "en-US": "Meeting Recordable",
+    "de-DE": "Besprechungsaufzeichnung"
+  },
+  "MEETING_RECORD_AUTO_START": {
+    "tr-TR": "Toplanti kaydini otomatik baslat",
+    "en-US": "Auto meeting record on start",
+    "de-DE": "Automatische Besprechungsaufzeichnung beim Start"
+  },
+  "DISABLE_LIST_VIEW": {
+    "tr-TR": "Diğer katılımcıların listesi",
+    "en-US": "See other viewers in the Users list",
+    "de-DE": "Verhindern Sie, dass Teilnehmer andere Teilnehmer sehen"
+  },
+  "DISABLE_WEBCAM_FOR_OTHER_ATTENDEES": {
+    "tr-TR": "Katilimcilarin diger katilimcilari kameralarini görmesini engelle",
+    "en-US": "Prevent attendees from seeing other attendees' webcams",
+    "de-DE": "Verhindern Sie, dass Teilnehmer die Webcams anderer Teilnehmer sehen"
+  },
+  "LOCK": {
+    "tr-TR": "Kilitli",
+    "en-US": "Lock",
+    "de-DE": "Sperren"
+  },
+  "UNLOCK": {
+    "tr-TR": "Açık",
+    "en-US": "Unlock",
+    "de-DE": "Öffnen"
+  },
+  "LOCK_SETTING": {
+    "tr-TR": "Kilit Ayari",
+    "en-US": "Lock Setting",
+    "de-DE": "Sperreinstellung"
+  },
+  "LOCK_SETTING_DESCRIPTION": {
+    "tr-TR": "Bu ayarı toplantılar sırasında da değiştirebilirsiniz.",
+    "en-US": "You can also change this setting during meetings.",
+    "de-DE": "Sie können diese Einstellung auch während Besprechungen ändern."
+  },
+  "LOCK_SETTING_SUB_DESCRIPTION": {
+    "tr-TR": "Bu seçenekler, izleyicilerin belirli özellikleri kullanmasını kısıtlamanıza olanak tanır.",
+    "en-US": "These options enable you to restrict viewers from using specific features.",
+    "de-DE": "Mit diesen Optionen können Sie die Verwendung bestimmter Funktionen durch Betrachter einschränken."
+  },
+  "LOCK_ON_START": {
+    "tr-TR": "Başlangıçta bütün katılımcıları kilitle",
+    "en-US": "Lock all attendees on start",
+    "de-DE": "Sperren Sie alle Teilnehmer beim Start"
+  },
+  "SHARE_WEBCAM": {
+    "tr-TR": "Kamera Paylaşımı",
+    "en-US": "Share Webcam",
+    "de-DE": "Webcam freigeben"
+  },
+  "SEE_OTHER_ATTENDEES_WEBCAMS": {
+    "tr-TR": "Diğer katılımcıların kameraları",
+    "en-US": "See other viewers webcams",
+    "de-DE": "Nur Moderatoren sehen Webcams"
+  },
+  "SHARE_MIC": {
+    "tr-TR": "Mikrofon paylaşımı",
+    "en-US": "Share microphone",
+    "de-DE": "Mikrofon freigeben"
+  },
+  "PRIVAT_MESSAGE": {
+    "tr-TR": "Özel yazışma",
+    "en-US": "Send Private chat messages",
+    "de-DE": "Private Chatnachrichten senden"
+  },
+  "PUBLIC_MESSAGE": {
+    "tr-TR": "Genel yazışma",
+    "en-US": "Send Public chat messages",
+    "de-DE": "Öffentliche Chatnachrichten senden"
+  },
+  "EDIT_SHARE_NOTE": {
+    "tr-TR": "Paylaşılan notları düzenleme",
+    "en-US": "Edit Shared Notes",
+    "de-DE": "Geteilte Notizen bearbeiten"
+  },
+  "SOON": {
+    "tr-TR": "Yakinda",
+    "en-US": "Soon",
+    "de-DE": "Bald"
+  },
+  "GUEST_POLICY": {
+    "tr-TR": "Giriş İzni",
+    "en-US": "Login Permission",
+    "de-DE": "Anmeldeberechtigung"
+  },
+  "ASK_MODERATOR": {
+    "tr-TR": "Moderatör Onayi ile",
+    "en-US": "Approve Login",
+    "de-DE": "Login genehmigen"
+  },
+  "ALWAYS_ACCEPT": {
+    "tr-TR": "Hizli giris",
+    "en-US": "Instant Login",
+    "de-DE": "Sofortiges Einloggen"
+  },
+  "DAILY_MEETINGS": {
+    "tr-TR": "Günlük Toplantilar",
+    "en-US": "Daily Meetings",
+    "de-DE": "tägliches Treffen"
+  },
+  "PAGE_NOT_FOUND": {
+    "tr-TR": "Sayfa Bulunamadi",
+    "en-US": "Page Not Found",
+    "de-DE": "Seite nicht gefunden"
+  },
+  "PAGE_NOT_FOUND_DESCRIPTION": {
+    "tr-TR": "Panik yapmayın, Ana Sayfaya dönmek için mavi düğmeyi tıklamanız veya bizimle iletişime geçmeniz yeterlidir.",
+    "en-US": "Don’t panic, just click the blue button to return Home Page or contact us.",
+    "de-DE": "Keine Panik, klicken Sie einfach auf die blaue Schaltfläche, um zur Startseite zurückzukehren, oder kontaktieren Sie uns."
+  },
+  "CENTER": {
+    "tr-TR": "Orta",
+    "en-US": "Center",
+    "de-DE": "Mitte"
+  }
+}
