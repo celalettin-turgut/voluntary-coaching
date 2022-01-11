@@ -5,19 +5,24 @@ import zipcodes from '../../_helpers/zipcodes.json';
 import {auth, database} from '../../firebase';
 import {ref, set, onValue} from 'firebase/database';
 
-const Search = () => {
-  const onSearch = (value) => {
-    // const starCountRef = ref(database, 'ads');
-    // onValue(starCountRef, (snapshot) => {
-    //   const data = snapshot.val();
-    //   console.log(data);
-    // });
+const Search = ({projects, handleChange}) => {
+  const onSearch = ({city}) => {
+    console.log(city);
+    const starCountRef = ref(database, 'ads');
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data);
+      const arr = Object.values(data);
+      console.log(arr);
+      const myArr = arr.filter((project) => project.city === city);
+      handleChange(myArr);
+    });
   };
   return (
     <SearchStyle justify='center'>
       <Col span={24} className='main-content'>
-        <h1 className='text-header'>Einfach Helfen </h1>
-        <h2 className='text'>Finde jetzt dein Project</h2>
+        <h1 className='text-header'>Sharing is Caring </h1>
+        <h2 className='text'>Find Your Project</h2>
         <Row justify='center' className='search-container'>
           <Col span={20} offset={2}>
             <Form

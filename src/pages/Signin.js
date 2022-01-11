@@ -15,6 +15,7 @@ const Signin = ({history}) => {
       signInWithEmailAndPassword(auth, email, password)
         .then((res) => {
           console.log(res);
+          history.push('/');
           notification.success({
             message: 'Sign in',
             description: 'Signed in successfully!',
@@ -37,10 +38,7 @@ const Signin = ({history}) => {
     if (loading) {
       return <h1>Loading..</h1>;
     }
-    if (user) {
-      history.push('/dashboard');
-    }
-  }, [loading, user, history]);
+  }, [loading]);
 
   const onFinishFailed = (errorInfo) => {
     console.log(errorInfo);

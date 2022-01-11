@@ -32,7 +32,7 @@ const Signup = ({history}) => {
             description: 'The account created successfully!',
             placement: 'topRight',
           });
-          history.push('/dashboard');
+          history.push('/');
         }
       } catch (err) {
         console.log(err.message);
@@ -53,10 +53,8 @@ const Signup = ({history}) => {
 
   useEffect(() => {
     if (loading) return <p>Loading...</p>;
-    if (user) {
-      history.replace('/dashboard');
-    }
-  }, [user, loading]);
+  }, [loading]);
+
   return (
     <React.Fragment>
       <StyledRow>

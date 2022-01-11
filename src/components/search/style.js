@@ -3,7 +3,7 @@ import {Row} from 'antd';
 
 const SearchStyle = styled(Row)`
   background-color: #47c9ad;
-  height: 300px;
+  height: 500px;
 
   .main-content {
     .text-header {
