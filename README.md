@@ -1,3 +1,14 @@
+# Voluntary Coaching aims to meet the people who are in need and those who are ready to help.
+
+You can easily register on the sign up page and start posting your own advertisement in case you need someone to help you.
+
+If you are ready to help others, just type the city name in the search field and find the advertisement in your near.
+
+If you would like to contribute to the project, follow the below steps and send pull request.
+
+I accept pull request for develop branch, so be aware that you dont send a pull request to main or master branch.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
