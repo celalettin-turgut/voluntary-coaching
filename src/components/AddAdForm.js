@@ -1,27 +1,33 @@
 import React, {useState, useEffect} from 'react';
+import {useHistory} from 'react-router-dom';
 import {StyledCol, StyledRow} from '../pages/style';
 import zipcodes from '../_helpers/zipcodes.json';
 import {Button, Form, Input, Select} from 'antd';
 import {auth, database} from '../firebase';
-import {ref, set} from 'firebase/database';
+import {ref, set, push} from 'firebase/database';
 
 const {Option} = Select;
 
 const AddAdForm = () => {
   const [form] = Form.useForm();
+  const history = useHistory();
   const [city, setCity] = useState('');
-  console.log(city);
 
   const onFinish = ({title, description, tasks, city}) => {
-    console.log(city);
-    const pushID = ref(database, 'ads/' + new Date().getTime());
-    console.log(pushID);
-    set(pushID, {
+    const idRef = ref(database, 'ads');
+    const newIdRef = push(idRef);
+    //console.log(newIdRef.key); it is unique key for realtime database
+
+    set(newIdRef, {
       title: title,
       description: description,
       tasks: tasks,
       city: city,
+      date: Date(),
+      imageUrl: 'defaulUrlComesToHere',
+      id: newIdRef.key,
     });
+    history.push('/');
   };
 
   const validateMessages = {
@@ -35,7 +41,7 @@ const AddAdForm = () => {
   };
 
   return (
-    <StyledRow>
+    <StyledRow style={{marginBottom: '30px'}}>
       <StyledCol
         xs={{span: 23}}
         sm={{span: 23}}

@@ -4,7 +4,10 @@ import {Row} from 'antd';
 
 const Show = ({projects}) => {
   return (
-    <Row justify='space-around'>
+    <Row
+      style={{marginBottom: '25px', padding: '50px 10px'}}
+      justify='space-between'
+    >
       {projects.map((proj) => (
         <ProjectCard key={proj.title} proje={proj} />
       ))}

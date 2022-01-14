@@ -10,53 +10,55 @@ const Search = ({projects, handleChange}) => {
     console.log(city);
     const starCountRef = ref(database, 'ads');
     onValue(starCountRef, (snapshot) => {
-      const data = snapshot.val();
-      console.log(data);
-      const arr = Object.values(data);
-      console.log(arr);
-      const myArr = arr.filter((project) => project.city === city);
-      handleChange(myArr);
+      snapshot.forEach((child) => {
+        if (child.val().city == city) {
+          console.log(child.key);
+          console.log(child.val());
+          handleChange((prev) => [...prev, child.val()]);
+        }
+      });
+      // const data = snapshot.val();
+      // const arr = Object.values(data);
+      // const myArr = arr.filter((project) => project.city === city);
+      // handleChange(myArr);
     });
   };
   return (
-    <SearchStyle justify='center'>
-      <Col span={24} className='main-content'>
+    <SearchStyle>
+      <Col span={14} offset={5} className='main-content'>
         <h1 className='text-header'>Sharing is Caring </h1>
         <h2 className='text'>Find Your Project</h2>
-        <Row justify='center' className='search-container'>
-          <Col span={20} offset={2}>
-            <Form
-              onFinish={onSearch}
-              size='large'
-              layout='inline'
-              name='horizontal_login'
+
+        <Form
+          style={{display: 'flex', justifyContent: 'center'}}
+          onFinish={onSearch}
+          size='large'
+          layout='inline'
+          name='horizontal_login'
+        >
+          <Form.Item style={{marginBottom: '15px'}} name='city'>
+            <Select
+              style={{width: '400px'}}
+              showSearch
+              placeholder='Select a city'
+              optionFilterProp='children'
+              filterOption={(input, option) =>
+                option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+              }
             >
-              <Form.Item name='city'>
-                <Select
-                  placeholder='Select a city'
-                  showSearch
-                  optionFilterProp='children'
-                  filterOption={(input, option) =>
-                    option.children
-                      .toLowerCase()
-                      .indexOf(input.toLowerCase()) >= 0
-                  }
-                >
-                  {zipcodes.map((city) => {
-                    return (
-                      <Select.Option key={city} value={city}>
-                        {city}
-                      </Select.Option>
-                    );
-                  })}
-                </Select>
-              </Form.Item>
-              <Form.Item>
-                <Button htmlType='submit'>Search</Button>
-              </Form.Item>
-            </Form>
-          </Col>
-        </Row>
+              {zipcodes.map((city) => {
+                return (
+                  <Select.Option key={city} value={city}>
+                    {city}
+                  </Select.Option>
+                );
+              })}
+            </Select>
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType='submit'>Search</Button>
+          </Form.Item>
+        </Form>
       </Col>
     </SearchStyle>
   );

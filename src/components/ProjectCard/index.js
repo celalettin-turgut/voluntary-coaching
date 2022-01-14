@@ -1,18 +1,29 @@
-import {Row} from 'antd';
+import {Image} from 'antd';
 import React from 'react';
 
-import {StyledCol} from '../../pages/style';
+import {StyledCard} from './style';
 
 const ProjectCard = ({proje}) => {
   return (
-    <StyledCol
-      xs={{span: 24}}
-      sm={{span: 24}}
-      md={{span: 16, offset: 4}}
-      lg={{span: 8, offset: 0}}
+    <StyledCard
+      xs={({span: 22}, {offset: 1})}
+      sm={{span: 11}}
+      md={{span: 11}}
+      lg={{span: 11}}
+      xl={{span: 7}}
     >
-      <Row>{proje.title}</Row>
-    </StyledCol>
+      <Image
+        preview={false}
+        style={{borderRadius: '5px'}}
+        src='/images/children.jpg'
+      />
+      <header className='project-card__header'>
+        <p className='project-card-text'>{proje.city}</p>
+        <h3 className='project-card__title'>{proje.title}</h3>
+        <h4 className='project-card-text'>{proje.tasks}</h4>
+        <p>{proje._id}</p>
+      </header>
+    </StyledCard>
   );
 };
 

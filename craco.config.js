@@ -20,6 +20,7 @@ module.exports = {
           lessOptions: {
             modifyVars: {
               'font-size-base': '18px',
+              //'body-background': '#f7f5f2',
             },
             javascriptEnabled: true,
           },
