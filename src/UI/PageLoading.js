@@ -19,11 +19,15 @@ const PageLoagingStyle = styled.div`
 `;
 
 // @params: @message
-const PageLoading = ({message = 'Loading'}) => {
+const PageLoading = ({message = 'Loading', loading = false}) => {
   return (
-    <PageLoagingStyle>
-      <Spin tip={message} indicator={antIcon} size='large' />
-    </PageLoagingStyle>
+    <React.Fragment>
+      {loading ? (
+        <PageLoagingStyle>
+          <Spin tip={message} indicator={antIcon} size='large' />
+        </PageLoagingStyle>
+      ) : null}
+    </React.Fragment>
   );
 };
 

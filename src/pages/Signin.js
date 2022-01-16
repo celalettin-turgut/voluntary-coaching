@@ -1,16 +1,19 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Row, Button, Form, Input, Checkbox, notification} from 'antd';
 import {StyledCol} from './style';
 import {Link} from 'react-router-dom';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth} from '../firebase';
+import PageLoading from '@UI/PageLoading';
 
 const Signin = ({history}) => {
   const [user, loading, error] = useAuthState(auth);
+  const [pageLoading, setPageLoading] = useState(false);
   const [form] = Form.useForm();
 
   const onFinish = ({email, password}) => {
+    setPageLoading(true);
     if (form.validateFields) {
       signInWithEmailAndPassword(auth, email, password)
         .then((res) => {
@@ -30,7 +33,8 @@ const Signin = ({history}) => {
             description: err.message,
             placement: 'topRight',
           });
-        });
+        })
+        .finally(() => setPageLoading(false));
     }
   };
 
@@ -114,6 +118,7 @@ const Signin = ({history}) => {
           </Form.Item>
         </Form>
       </StyledCol>
+      <PageLoading loading={pageLoading} />
     </Row>
   );
 };

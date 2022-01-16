@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Form, Input, Checkbox, Button, notification} from 'antd';
 import {Link} from 'react-router-dom';
+import PageLoading from '@UI/PageLoading';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth, database} from '../firebase';
 import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
@@ -9,9 +10,11 @@ import {StyledCol, StyledRow} from './style';
 
 const Signup = ({history}) => {
   const [user, loading, error] = useAuthState(auth);
+  const [pageLoading, setPageLoading] = useState(false);
   const [form] = Form.useForm();
 
   const onFinish = async ({name, email, password}) => {
+    setPageLoading(true);
     if (form.validateFields) {
       try {
         const res = await createUserWithEmailAndPassword(auth, email, password);
@@ -33,6 +36,7 @@ const Signup = ({history}) => {
             placement: 'topRight',
           });
           history.push('/');
+          setPageLoading(false);
         }
       } catch (err) {
         console.log(err.message);
@@ -42,6 +46,7 @@ const Signup = ({history}) => {
           description: err.message,
           placement: 'topRight',
         });
+        setPageLoading(false);
       }
     }
   };
@@ -134,6 +139,7 @@ const Signup = ({history}) => {
           </Form>
         </StyledCol>
       </StyledRow>
+      <PageLoading loading={pageLoading} />
     </React.Fragment>
   );
 };
