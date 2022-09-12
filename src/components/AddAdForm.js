@@ -37,7 +37,7 @@ const AddAdForm = () => {
         throw Error('The image couldnt be uploaded!!');
       const idRef = ref(database, 'ads');
       const newIdRef = push(idRef);
-      //console.log(newIdRef.key); it is unique key for realtime database
+  
 
       set(newIdRef, {
         title: title,

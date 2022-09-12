@@ -13,7 +13,6 @@ import {Col, Row, Space, Avatar} from 'antd';
 const Profile = () => {
   const [userData, loading, error] = useAuthState(auth);
   const [user, setUser] = useState({});
-  console.log(userData);
 
   useEffect(() => {
     const userRef = ref(database, 'users/' + userData.uid);

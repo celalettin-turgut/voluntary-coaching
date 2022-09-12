@@ -7,13 +7,11 @@ import {ref, set, onValue} from 'firebase/database';
 
 const Search = ({projects, handleChange}) => {
   const onSearch = ({city}) => {
-    console.log(city);
+  
     const starCountRef = ref(database, 'ads');
     onValue(starCountRef, (snapshot) => {
       snapshot.forEach((child) => {
         if (child.val().city == city) {
-          console.log(child.key);
-          console.log(child.val());
           handleChange((prev) => [...prev, child.val()]);
         }
       });

@@ -17,7 +17,6 @@ const Signin = ({history}) => {
     if (form.validateFields) {
       signInWithEmailAndPassword(auth, email, password)
         .then((res) => {
-          console.log(res);
           history.push('/');
           notification.success({
             message: 'Sign in',
@@ -26,7 +25,6 @@ const Signin = ({history}) => {
           });
         })
         .catch((err) => {
-          console.log(err.message);
 
           notification.error({
             message: 'Error',
@@ -45,7 +43,7 @@ const Signin = ({history}) => {
   }, [loading]);
 
   const onFinishFailed = (errorInfo) => {
-    console.log(errorInfo);
+
   };
 
   const validateMessages = {

@@ -94,7 +94,7 @@ const printError = (error, dispatch) => {
       description: 'Something went wrong...',
     });
   }
-  console.log(error.config);
+
 };
 
 export {apiService};

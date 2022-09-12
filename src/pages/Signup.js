@@ -39,7 +39,6 @@ const Signup = ({history}) => {
           setPageLoading(false);
         }
       } catch (err) {
-        console.log(err.message);
 
         notification.error({
           message: 'Error',
@@ -52,7 +51,6 @@ const Signup = ({history}) => {
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log('eeeeeee', errorInfo);
     console.log('valid', form.validateFields);
   };
 
