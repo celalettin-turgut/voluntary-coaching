@@ -2,7 +2,6 @@ import React, {Suspense} from 'react';
 import './App.less';
 import {AppStyle} from './style';
 import {ConfigProvider} from 'antd';
-import Header from '@layout/Header';
 import Footer from '@layout/Footer';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {theme} from '@config/theme';
@@ -18,7 +17,6 @@ const App = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <AppStyle>
-              {/* <Header /> */}
               <Navbar />
               <Main />
               <Footer />
