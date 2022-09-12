@@ -32,7 +32,6 @@ const Menu = () => {
 
   return (
     <AntMenu
-      onClick={(e) => console.log(e)}
       inlineCollapsed={false}
       mode={md ? 'horizontal' : 'inline'}
       style={{flex: 'auto'}}
