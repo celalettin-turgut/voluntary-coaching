@@ -13,7 +13,7 @@ import Navbar from '@components/Navbar';
 
 const App = () => {
   return (
-    <Suspense fallback={<PageLoading />}>
+    <Suspense fallback={<PageLoading loading={true} />}>
       <ConfigProvider componentSize='large'>
         <ThemeProvider theme={theme}>
           <Router>

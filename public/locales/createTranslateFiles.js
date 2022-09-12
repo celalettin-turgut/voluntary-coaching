@@ -27,7 +27,6 @@ Object.keys(words).map((lg) => {
     JSON.stringify(words[lg]),
     (err) => {
       if (err) throw err;
-      console.log(lg + ' Olusturuldu');
     }
   );
 });

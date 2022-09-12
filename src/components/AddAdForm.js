@@ -1,27 +1,64 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
+import {useAuthState} from 'react-firebase-hooks/auth';
 import {StyledCol, StyledRow} from '../pages/style';
 import zipcodes from '../_helpers/zipcodes.json';
-import {Button, Form, Input, Select} from 'antd';
+import {Button, Form, Input, Select, notification} from 'antd';
 import {auth, database} from '../firebase';
-import {ref, set} from 'firebase/database';
+import {ref, set, push} from 'firebase/database';
+import PageLoading from '../UI/PageLoading';
 
 const {Option} = Select;
 
 const AddAdForm = () => {
+  const [userData, userLoading, error] = useAuthState(auth);
   const [form] = Form.useForm();
-  const [city, setCity] = useState('');
-  console.log(city);
+  const history = useHistory();
+  const [imageFile, setImageFile] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const onFinish = ({title, description, tasks, city}) => {
-    console.log(city);
-    const pushID = ref(database, 'ads/' + new Date().getTime());
-    console.log(pushID);
-    set(pushID, {
-      title: title,
-      description: description,
-      tasks: tasks,
-      city: city,
-    });
+  const onFinish = async ({title, description, tasks, city}) => {
+    setLoading(true);
+    const data = new FormData();
+    data.append('file', imageFile);
+    data.append('upload_preset', 'ehrenamtboerse');
+    data.append('cloud_name', 'dceod0qel');
+
+    try {
+      const uploadData = await fetch(
+        '  https://api.cloudinary.com/v1_1/dceod0qel/image/upload',
+        {
+          method: 'post',
+          body: data,
+        }
+      ).then((r) => r.json());
+
+      if (!uploadData?.secure_url)
+        throw Error('The image couldnt be uploaded!!');
+      const idRef = ref(database, 'ads');
+      const newIdRef = push(idRef);
+  
+
+      set(newIdRef, {
+        title: title,
+        description: description,
+        tasks: tasks,
+        city: city,
+        date: Date(),
+        imageUrl: uploadData?.secure_url,
+        id: newIdRef.key,
+        uid: userData.uid,
+      });
+      history.push('/');
+      setLoading(false);
+    } catch (err) {
+      notification.error({
+        message: 'Error',
+        description: err.message,
+        placement: 'topRight',
+      });
+      setLoading(false);
+    }
   };
 
   const validateMessages = {
@@ -34,8 +71,16 @@ const AddAdForm = () => {
     },
   };
 
+  // const fileUpload = (event) => {
+  //   setPicture(event?.target?.files[0]);
+  // };
+
+  const handleFiles = (e) => {
+    setImageFile(e.target.files[0]);
+  };
+
   return (
-    <StyledRow>
+    <StyledRow style={{marginBottom: '30px'}}>
       <StyledCol
         xs={{span: 23}}
         sm={{span: 23}}
@@ -100,6 +145,10 @@ const AddAdForm = () => {
             </Select>
           </Form.Item>
 
+          <Form.Item name='picture' label='Picture'>
+            <input type='file' accept='image/*' onChange={handleFiles} />
+          </Form.Item>
+
           <Form.Item>
             <Button type='link' htmlType='button'>
               Cancel
@@ -110,6 +159,7 @@ const AddAdForm = () => {
           </Form.Item>
         </Form>
       </StyledCol>
+      <PageLoading loading={loading} />
     </StyledRow>
   );
 };

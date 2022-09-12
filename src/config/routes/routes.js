@@ -19,6 +19,11 @@ export const routes = [
   },
   {
     exact: true,
+    path: '/project/:id',
+    component: lazy(() => import('@pages/Project')),
+  },
+  {
+    exact: true,
     path: '/',
     component: lazy(() => import('@pages/Home')),
   },

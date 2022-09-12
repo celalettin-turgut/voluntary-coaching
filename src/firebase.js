@@ -80,7 +80,6 @@ const sendPasswordResetEmail = async (email) => {
 const logout = () => {
   signOut(auth)
     .then(() => {
-      console.log('Logged out');
     })
     .catch('An error occured while signing out');
 };
