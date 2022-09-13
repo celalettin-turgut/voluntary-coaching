@@ -23,6 +23,7 @@
     "styled-components": "^5.3.1",
     "web-vitals": "^1.1.2"
   },
+  "proxy": "http://localhost:3000",
   "scripts": {
     "start": "node ./public/locales/createTranslateFiles.js && craco start",
     "dev": "node ./public/locales/createTranslateFiles.js && craco start",
