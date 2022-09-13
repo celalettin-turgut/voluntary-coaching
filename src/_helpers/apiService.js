@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {notification} from 'antd';
-import {LOGOUT} from '@Context/actions';
+import {LOGOUT} from '../_context/actions';
 
 const apiService = {
   get: async ({intoken = true, url, dispatch}) => {

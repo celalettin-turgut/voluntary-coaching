@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Form, Input, Checkbox, Button, notification} from 'antd';
 import {Link} from 'react-router-dom';
-import PageLoading from '@UI/PageLoading';
+import PageLoading from '../UI/PageLoading';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth, database} from '../firebase';
 import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';

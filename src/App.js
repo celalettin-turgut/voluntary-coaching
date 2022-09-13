@@ -2,13 +2,13 @@ import React, {Suspense} from 'react';
 import './App.less';
 import {AppStyle} from './style';
 import {ConfigProvider} from 'antd';
-import Footer from '@layout/Footer';
+import Footer from './layout/Footer';
 import {BrowserRouter as Router} from 'react-router-dom';
-import {theme} from '@config/theme';
+import {theme} from './config/theme';
 import {ThemeProvider} from 'styled-components';
 import Main from './Main';
-import PageLoading from '@UI/PageLoading';
-import Navbar from '@components/Navbar';
+import PageLoading from './UI/PageLoading';
+import Navbar from './components/Navbar';
 
 const App = () => {
   return (

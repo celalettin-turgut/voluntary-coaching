@@ -4,27 +4,27 @@ export const routes = [
   {
     exact: true,
     path: '/about',
-    component: lazy(() => import('@pages/About')),
+    component: lazy(() => import('../../pages/About')),
   },
 
   {
     exact: true,
     path: '/signup',
-    component: lazy(() => import('@pages/Signup')),
+    component: lazy(() => import('../../pages/Signup')),
   },
   {
     exact: true,
     path: '/signin',
-    component: lazy(() => import('@pages/Signin')),
+    component: lazy(() => import('../../pages/Signin')),
   },
   {
     exact: true,
     path: '/project/:id',
-    component: lazy(() => import('@pages/Project')),
+    component: lazy(() => import('../../pages/Project')),
   },
   {
     exact: true,
     path: '/',
-    component: lazy(() => import('@pages/Home')),
+    component: lazy(() => import('../../pages/Home')),
   },
 ];

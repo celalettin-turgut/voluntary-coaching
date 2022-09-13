@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth} from '../firebase';
-import PageLoading from '@UI/PageLoading';
+import PageLoading from '../UI/PageLoading';
 
 const Signin = ({history}) => {
   const [user, loading, error] = useAuthState(auth);

@@ -1,6 +1,6 @@
 import React, {createContext, useReducer, useEffect, useState} from 'react';
 import {reducer} from './reducer';
-import PageLoading from '@UI/PageLoading';
+import PageLoading from '../UI/PageLoading';
 
 export const AppContext = createContext();
 

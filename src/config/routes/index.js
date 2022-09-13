@@ -1,6 +1,6 @@
 import React, {lazy} from 'react';
-import {routes} from '@config/routes/routes';
-import {authRoutes} from '@config/routes/authRoutes.js';
+import {routes} from './routes';
+import {authRoutes} from './authRoutes.js';
 import {Redirect, Switch, Route} from 'react-router-dom';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth} from '../../firebase';
@@ -17,7 +17,7 @@ const Routes = () => {
             {!user ? <Redirect to='/signin' /> : null}
           </Route>
         ))}
-        <Route component={lazy(() => import('@pages/NotFound'))} />
+        <Route component={lazy(() => import('../../pages/NotFound'))} />
       </Switch>
     </div>
   );
